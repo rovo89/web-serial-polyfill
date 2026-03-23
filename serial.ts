@@ -231,8 +231,8 @@ class SerialPortPolyfill implements BaseSerialPort {
     };
 
     this.device_ = device;
-    this.controlInterface_ = this.device_.configuration.interfaces.find(x => x.alternates.find(y => y.endpoints.find(z => z.type === 'interrupt')));
-    this.transferInterface_ = this.device_.configuration.interfaces.find(x => x.alternates.find(y => y.endpoints.find(z => z.type === 'bulk')));
+    this.controlInterface_ = this.device_.configuration.interfaces.find(x => x.alternates.find(y => y.endpoints.find(z => z.type === 'interrupt')))!;
+    this.transferInterface_ = this.device_.configuration.interfaces.find(x => x.alternates.find(y => y.endpoints.find(z => z.type === 'bulk')))!;
     this.inEndpoint_ = findEndpoint(this.transferInterface_, 'in');
     this.outEndpoint_ = findEndpoint(this.transferInterface_, 'out');
   }
